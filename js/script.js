@@ -13,6 +13,7 @@ import { firebaseConfig } from './firebase/config.js';
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' }); // 🟢 Fuerza selección de cuenta
 
 // ✅ Menú hamburguesa
 const botonMenu = document.getElementById("boton-menu");

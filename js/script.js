@@ -1,3 +1,20 @@
+// ✅ Importaciones necesarias
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { firebaseConfig } from './firebase/config.js';
+
+// ✅ Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+// ✅ Menú hamburguesa
 const botonMenu = document.getElementById("boton-menu");
 const menu = document.getElementById("menu");
 
@@ -6,18 +23,9 @@ botonMenu.addEventListener("click", function () {
   menu.classList.toggle("oculto");
 });
 
-import { auth } from "../firebase/config.js";
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
+// ✅ Botón login
 const botonLogin = document.getElementById("boton-login");
 const usuarioSpan = document.getElementById("usuario-logueado");
-
-const provider = new GoogleAuthProvider();
 
 botonLogin.addEventListener("click", () => {
   if (auth.currentUser) {
@@ -37,7 +45,7 @@ botonLogin.addEventListener("click", () => {
   }
 });
 
-// Detectar cambios de sesión
+// ✅ Detectar cambios de sesión y actualizar la UI
 onAuthStateChanged(auth, (user) => {
   if (user) {
     usuarioSpan.textContent = `Hola, ${user.displayName}`;
@@ -47,4 +55,3 @@ onAuthStateChanged(auth, (user) => {
     botonLogin.textContent = "Iniciar sesión";
   }
 });
-

@@ -1,0 +1,204 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(rgba(255,255,255,0.99), rgba(255,255,255,0.10)),
+              url("../img/pequecho500.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Encabezado con bandera italiana fundida y fuente vistosa */
+header {
+  background: linear-gradient(to right,
+    #008000 0%,
+    #008000 20%,
+    #ffffff 40%,
+    #ffffff 60%,
+    #ff0000 80%,
+    #ff0000 100%);
+  padding: 2.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+/* Menú de navegación */
+nav {
+  background-color: transparent; /* ✅ corregido */
+  padding: 0.5rem;
+  position: relative;
+  z-index: 10;
+  box-shadow: none; /* ✅ corregido */
+}
+
+.boton-menu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 1000; /* ✅ siempre por encima del menú */
+  color: #222;   /* ✅ visible en fondo claro */
+  background-color: transparent;
+  border: none;
+}
+
+
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent; /* ✅ corregido */
+  backdrop-filter: blur(6px);    /* ✅ efecto moderno */
+}
+
+/* OCULTAR por defecto si hay clase "oculto" */
+.menu.oculto {
+  display: none !important;
+}
+
+.menu li {
+  margin: 0.5rem 1rem;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #2a2a2a;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.menu a:hover {
+  color: #008000;
+  background-color: #e0e0e0;
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.imagen-portada {
+  display: none;
+}
+
+.texto-presentacion {
+  margin-top: 1rem;
+  padding-bottom: 10px;
+  font-size: 1.4rem;
+  max-width: 90%;
+  color: #111;
+  font-family: 'Playfair Display', serif;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* Footer */
+.pie {
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem;
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: auto;
+ }
+
+/* Responsive: menú hamburguesa en pantallas pequeñas */
+@media (min-width: 769px) {
+  .menu {
+    display: flex !important;
+  }
+
+  .menu.oculto {
+    display: flex !important; /* ← CORRIGE el conflicto */
+  }
+
+  .boton-menu {
+    display: none !important;
+  }
+}
+
+#contenedor-login {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1001;
+  flex-wrap: wrap;
+}
+
+#usuario-logueado {
+  font-weight: bold;
+  color: #111;
+  font-size: 0.9rem;
+}
+
+#boton-login {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  background-color: #ffffffdd;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#boton-login:hover {
+  background-color: #e6e6e6;
+}
+
+
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    background-color: transparent; /* ✅ corregido */
+    backdrop-filter: blur(6px);    /* ✅ corregido */
+  }
+
+  .boton-menu {
+    display: block;
+  }
+
+  .menu.mostrar {
+    display: flex !important;
+    background-color: rgba(255, 255, 255, 0.75); /* ✅ visible al abrir */
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}

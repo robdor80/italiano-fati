@@ -198,14 +198,12 @@ main {
 
 /* === Estilo general para la sección de vocabulario === */
 .vocabulario-container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 2em auto;
   padding: 1em;
-  /*background: #ffffff;*/
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.08);
   font-family: 'Segoe UI', sans-serif;
 }
+
 
 /* Título principal */
 .vocabulario-container h2 {

@@ -66,19 +66,15 @@ onAuthStateChanged(auth, (user) => {
     const cursoSelector = document.getElementsByName("curso");
     const docRef = doc(db, "usuarios", user.uid);
 
-    getDoc(docRef).then((docSnap) => {
-      if (docSnap.exists() && docSnap.data().curso) {
-        const cursoGuardado = docSnap.data().curso;
-        cursoSelector.forEach(radio => {
-          if (radio.value === cursoGuardado) {
-            radio.checked = true;
-          }
-        });
+    // Si NO quieres autoseleccionar curso ni generar menú al iniciar sesión:
+getDoc(docRef).then((docSnap) => {
+  if (docSnap.exists() && docSnap.data().curso) {
+    console.log("Curso guardado encontrado:", docSnap.data().curso);
+    // Puedes usar esta info para mostrar un aviso o recordatorio si quieres
+    // Pero no seleccionamos el radio ni generamos el menú
+  }
+});
 
-        // ✅ Generar el menú automáticamente al cargar
-        generarMenuPorCurso(cursoGuardado);
-      }
-    });
 
     // Guardar selección de curso y actualizar menú
     cursoSelector.forEach(radio => {

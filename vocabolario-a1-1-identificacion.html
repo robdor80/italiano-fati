@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Identificación personal - A1 1º</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Identificación personal - A1 1º</title>
+    <link rel="stylesheet" href="css/style.css" />
 
 </head>
+
 <body>
-  <header>
-    <h1>Vocabolario A1 - 1º</h1>
-    <nav>
-      <a href="index.html">🏠 Inicio</a>
-      <a href="vocabolario-a1-1.html">🔙 Volver a secciones</a>
-    </nav>
-  </header>
+    <header>
+        <h1>Vocabolario A1 - 1º</h1>
+        <nav class="navegacion-top">
+            <a href="index.html">🏠 Inicio</a>
+            <a href="vocabolario-a1-1.html">🔙 Volver a secciones</a>
+        </nav>
 
-  <main class="vocabulario-container">
-    <h2>🧍‍♂️ Identificación personal</h2>
+    </header>
 
-    <div class="idioma-labels">
-      <span>Español</span>
-      <span>Italiano</span>
-    </div>
+    <main class="vocabulario-container">
+  <h2>🧍‍♂️ Identificación personal</h2>
 
-    <section>
+  <section class="vocabulario-grid">
+    <div class="tarjeta-vocabulario">
+      <p class="idiomas-header">Español / Italiano</p>
       <h3>Carácter</h3>
       <ul>
         <li>Alegre - Allegro/a</li>
@@ -36,7 +36,10 @@
         <li>Trabajador - Lavoratore</li>
         <li>Perezoso - Pigro/a</li>
       </ul>
+    </div>
 
+    <div class="tarjeta-vocabulario">
+      <p class="idiomas-header">Español / Italiano</p>
       <h3>Habilidades</h3>
       <ul>
         <li>Cantar - Cantare</li>
@@ -47,7 +50,10 @@
         <li>Leer - Leggere</li>
         <li>Jugar al fútbol - Giocare a calcio</li>
       </ul>
+    </div>
 
+    <div class="tarjeta-vocabulario">
+      <p class="idiomas-header">Español / Italiano</p>
       <h3>Descripción física</h3>
       <ul>
         <li>Alto - Alto/a</li>
@@ -62,23 +68,25 @@
         <li>Rubio - Biondo/a</li>
         <li>Calvo - Calvo</li>
       </ul>
-    </section>
-
-    <div class="botonera">
-      <button onclick="exportarAPDF()">📄 Exportar a PDF</button>
-      <a href="ejercicios-identificacion.html">✍️ Practicar ejercicios</a>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Curso de Italiano A1 - 1º</p>
-  </footer>
+  <div class="botonera">
+    <button onclick="exportarAPDF()">📄 Exportar a PDF</button>
+    <a href="ejercicios-identificacion.html">✍️ Practicar ejercicios</a>
+  </div>
+</main>
 
-  <script>
-    function exportarAPDF() {
-      const contenido = document.querySelector("main").innerHTML;
-      const ventana = window.open("", "", "width=800,height=600");
-      ventana.document.write(`
+
+    <footer>
+        <p>&copy; 2025 Curso de Italiano A1 - 1º</p>
+    </footer>
+
+    <script>
+        function exportarAPDF() {
+            const contenido = document.querySelector("main").innerHTML;
+            const ventana = window.open("", "", "width=800,height=600");
+            ventana.document.write(`
         <html>
           <head>
             <title>PDF - Identificación personal</title>
@@ -94,9 +102,10 @@
           </body>
         </html>
       `);
-      ventana.document.close();
-      ventana.print();
-    }
-  </script>
+            ventana.document.close();
+            ventana.print();
+        }
+    </script>
 </body>
+
 </html>

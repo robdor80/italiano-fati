@@ -18,7 +18,7 @@ body {
   background-attachment: fixed;
 }
 
-/* Encabezado con bandera italiana fundida y fuente vistosa */
+/* Encabezado */
 header {
   background: linear-gradient(to right,
     #008000 0%,
@@ -38,16 +38,14 @@ h1 {
   font-weight: 600;
   color: #222;
   text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
-  margin: 0;
 }
 
 /* Menú de navegación */
 nav {
-  background-color: transparent; /* ✅ corregido */
+  background-color: transparent;
   padding: 0.5rem;
   position: relative;
   z-index: 10;
-  box-shadow: none; /* ✅ corregido */
 }
 
 .boton-menu {
@@ -57,12 +55,11 @@ nav {
   position: absolute;
   top: 10px;
   right: 20px;
-  z-index: 1000; /* ✅ siempre por encima del menú */
-  color: #222;   /* ✅ visible en fondo claro */
+  z-index: 1000;
+  color: #222;
   background-color: transparent;
   border: none;
 }
-
 
 .menu {
   display: flex;
@@ -71,12 +68,10 @@ nav {
   list-style: none;
   padding: 0;
   margin: 0;
-  background-color: transparent; /* ✅ sin fondo */
-  backdrop-filter: none;         /* ✅ sin difuminado */
+  background-color: transparent;
+  backdrop-filter: none;
 }
 
-
-/* OCULTAR por defecto si hay clase "oculto" */
 .menu.oculto {
   display: none !important;
 }
@@ -105,7 +100,6 @@ main {
   padding: 2rem 1rem;
 }
 
-
 .imagen-portada {
   display: none;
 }
@@ -117,25 +111,26 @@ main {
   max-width: 90%;
   color: #111;
   font-family: 'Playfair Display', serif;
-  text-align: justify;
+  text-align: center;
   line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Footer */
-.pie {
+footer {
   width: 100%;
   text-align: center;
-  padding: 0.7rem;
+  padding: 1.5rem;
   font-size: 0.95rem;
   color: #333;
   font-weight: bold;
-  margin-top: auto;
- }
+  margin-top: 2rem;
+  background-color: transparent;
+}
 
-
-
-
- #selector-curso {
+/* Selector de curso */
+#selector-curso {
   position: absolute;
   top: 150px;
   left: 15px;
@@ -160,97 +155,52 @@ main {
   gap: 0.4rem;
 }
 
-.grid-vocabulario {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-  width: 100%;
-  max-width: 900px;
-}
-
-.card-vocab {
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 1.2rem;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #222;
-  font-weight: bold;
-  font-size: 1.1rem;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-}
-
-.card-vocab:hover {
-  transform: scale(1.05);
-  background-color: #f0f0f0;
-}
-
-.card-vocab .emoji {
-  font-size: 2.4rem;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-
-/* === Estilo general para la sección de vocabulario === */
-.vocabulario-container {
-  max-width: 1200px;
-  margin: 2em auto;
-  padding: 1em;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-
-/* Título principal */
-.vocabulario-container h2 {
-  font-size: 1.6em;
-  color: #222;
-  margin-bottom: 0.5em;
+/* Tarjetas vocabulario agrupadas verticalmente y centradas */
+.vocabulario-grid {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5em;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
-/* Subtítulos de categorías */
-.vocabulario-container h3 {
-  margin-top: 1.5em;
-  color: #444;
-  border-left: 5px solid #5c5cff;
-  padding-left: 0.5em;
-  font-size: 1.2em;
+.tarjeta-vocabulario {
+  width: 90%;
+  max-width: 350px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 1.2rem;
+  border-left: 4px solid #d1d1d1;
 }
 
-/* Listas de vocabulario */
-.vocabulario-container ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0.5em;
+.tarjeta-vocabulario h3 {
+  color: #2d2d2d;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
-.vocabulario-container li {
-  padding: 0.3em 0;
-  border-bottom: 1px dashed #ccc;
-  display: flex;
-  justify-content: space-between;
-  font-size: 1em;
+.tarjeta-vocabulario ul {
+  list-style-type: square;
+  padding-left: 1.2rem;
+  margin: 0;
 }
 
-/* Etiquetas idioma */
-.idioma-labels {
-  display: flex;
-  justify-content: space-between;
+/* Encabezado idiomas */
+.idiomas-header {
   font-weight: bold;
-  margin-top: 1em;
-  border-bottom: 2px solid #aaa;
-  padding-bottom: 0.2em;
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  text-align: left;
 }
 
-/* Botones */
+/* Botonera centrada */
 .botonera {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 1em;
   margin-top: 2em;
 }
@@ -294,94 +244,7 @@ main {
   background-color: #e0e0e0;
 }
 
-.vocabulario-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.tarjeta-vocabulario {
-  flex: 1 1 250px;
-  max-width: 350px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  padding: 1.2rem;
-}
-
-.tarjeta-vocabulario h3 {
-  color: #2d2d2d;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.8rem;
-}
-
-.tarjeta-vocabulario ul {
-  list-style-type: square;
-  padding-left: 1.2rem;
-  margin: 0;
-}
-
-.idiomas-header {
-  font-weight: bold;
-  color: #555;
-  font-size: 0.95rem;
-  margin-bottom: 0.6rem;
-  text-align: left;
-}
-
-
-/* ✅ Disposición de cuadrícula de tarjetas de vocabulario */
-.vocabulario-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-/* ✅ Tarjetas individuales con margen y estilo */
-.tarjeta-vocabulario {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #d1d1d1;
-}
-
-/* ✅ Encabezado “Español / Italiano” */
-.idiomas-header {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #555;
-}
-
-/* ✅ Botones alineados y separados */
-.botonera {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-/* ✅ Footer centrado */
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  background-color: transparent;
-  margin-top: 2rem;
-}
-
-
-
-
-
-
-
-/* Responsive: en móvil pasa abajo */
+/* Responsive móvil */
 @media (max-width: 768px) {
   #selector-curso {
     position: static;
@@ -395,17 +258,35 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    background-color: transparent;
+    backdrop-filter: blur(6px);
+  }
+
+  .boton-menu {
+    display: block;
+  }
+
+  .menu.mostrar {
+    display: flex !important;
+    background-color: transparent;
+    backdrop-filter: none;
+  }
 }
 
-
-/* Responsive: menú hamburguesa en pantallas pequeñas */
+/* Responsive escritorio */
 @media (min-width: 769px) {
   .menu {
     display: flex !important;
   }
 
   .menu.oculto {
-    display: flex !important; /* ← CORRIGE el conflicto */
+    display: flex !important;
   }
 
   .boton-menu {
@@ -413,6 +294,7 @@ footer {
   }
 }
 
+/* Login */
 #contenedor-login {
   position: absolute;
   top: 10px;
@@ -444,43 +326,17 @@ footer {
   background-color: #e6e6e6;
 }
 
-
-
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    flex-direction: column;
-    padding: 1rem;
-    border-top: 1px solid #ccc;
-    background-color: transparent; /* ✅ corregido */
-    backdrop-filter: blur(6px);    /* ✅ corregido */
-  }
-
-  .boton-menu {
-    display: block;
-  }
-
-  .menu.mostrar {
-  display: flex !important;
-  background-color: transparent;
-  backdrop-filter: none;
-}
-
-}
-
-/* ✅ En pantallas verticales, meter el texto en una caja central elegante */
+/* Portrait ajuste */
 @media screen and (orientation: portrait) {
   .bloque-contenido {
-  background-color: transparent;
-  padding: 0.8rem 1.2rem;
-  border-radius: 12px;
-  margin: 1rem;
-  border-radius: 12px;
-}
-
+    background-color: transparent;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    margin: 1rem;
+  }
 
   .texto-presentacion {
-    text-align: justify;
+    text-align: center;
     font-size: 1.2rem;
   }
 
@@ -499,25 +355,23 @@ footer {
   }
 
   .etiqueta-nivel {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  margin-bottom: 0.3rem;
-  color: #444;
-  font-size: 0.95rem;
-}
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    color: #444;
+    font-size: 0.95rem;
+  }
 
-.grupo-curso {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
-}
-
-
+  .grupo-curso {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
 
   #contenedor-login {
     position: static;
@@ -527,18 +381,6 @@ footer {
   }
 }
 
-
-
 #selector-curso legend {
   padding-bottom: 5px;
 }
-
-
-
-
-
-
-
-
-
-

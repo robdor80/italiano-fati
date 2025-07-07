@@ -196,6 +196,88 @@ main {
 }
 
 
+/* === Estilo general para la sección de vocabulario === */
+.vocabulario-container {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 1em;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título principal */
+.vocabulario-container h2 {
+  font-size: 1.6em;
+  color: #222;
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Subtítulos de categorías */
+.vocabulario-container h3 {
+  margin-top: 1.5em;
+  color: #444;
+  border-left: 5px solid #5c5cff;
+  padding-left: 0.5em;
+  font-size: 1.2em;
+}
+
+/* Listas de vocabulario */
+.vocabulario-container ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5em;
+}
+
+.vocabulario-container li {
+  padding: 0.3em 0;
+  border-bottom: 1px dashed #ccc;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+}
+
+/* Etiquetas idioma */
+.idioma-labels {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 1em;
+  border-bottom: 2px solid #aaa;
+  padding-bottom: 0.2em;
+}
+
+/* Botones */
+.botonera {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.botonera a,
+.botonera button {
+  background-color: #5c5cff;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.botonera a:hover,
+.botonera button:hover {
+  background-color: #4343e6;
+}
+
+
+
 
 
 /* Responsive: en móvil pasa abajo */

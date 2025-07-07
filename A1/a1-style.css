@@ -16,7 +16,7 @@ h2 {
 }
 
 /* ✅ Agrupar tarjetas en filas en pantallas grandes */
-.vocabulario-grid {
+body.vocabulario-a1 .vocabulario-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -25,10 +25,12 @@ h2 {
   padding: 1rem;
 }
 
+
 /* 📱 En móviles, mantener una debajo de otra */
 @media (max-width: 768px) {
-  .vocabulario-grid {
+  body.vocabulario-a1 .vocabulario-grid {
     flex-direction: column;
     align-items: center;
   }
 }
+

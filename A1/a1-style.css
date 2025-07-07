@@ -1,0 +1,20 @@
+/* Estilos personalizados para las páginas del curso A1 */
+
+body {
+  /* Puedes sobrescribir cosas aquí si quieres */
+}
+
+/* Ejemplo: cambiar color de títulos */
+h2 {
+  color: #03111f;
+}
+
+/* O personalizar la tarjeta de vocabulario */
+.tarjeta-vocabulario {
+  border-left: 4px solid #0055aa;
+}
+
+
+body {
+  background-color: lightyellow;
+}

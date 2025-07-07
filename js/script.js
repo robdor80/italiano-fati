@@ -161,7 +161,9 @@ function generarMenuPorCurso(curso) {
   secciones.forEach(sec => {
     const li = document.createElement("li");
     const enlace = document.createElement("a");
-    const archivo = `${sec.archivo}-${nivel}.html`;
+    const carpeta = curso.substring(0, 2).toUpperCase(); // A1, A2, etc.
+    const archivo = `${carpeta}/${sec.archivo}-${nivel}.html`;
+
 
     enlace.href = archivo;
     enlace.textContent = `${sec.icono} ${sec.nombre} ${curso.toUpperCase()}`;

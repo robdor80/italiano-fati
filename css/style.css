@@ -162,6 +162,40 @@ main {
   gap: 0.4rem;
 }
 
+.grid-vocabulario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.card-vocab {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.card-vocab:hover {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+}
+
+.card-vocab .emoji {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+
 
 
 /* Responsive: en móvil pasa abajo */

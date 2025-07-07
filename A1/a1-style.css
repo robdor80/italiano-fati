@@ -34,3 +34,15 @@ body.vocabulario-a1 .vocabulario-grid {
   }
 }
 
+.respuesta {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.respuesta.correcta {
+  color: green;
+}
+.respuesta.incorrecta {
+  color: red;
+}
+

@@ -165,7 +165,7 @@ footer {
   gap: 0.4rem;
 }
 
-/* Tarjetas vocabulario agrupadas verticalmente y centradas */
+/* Tarjetas vocabulario agrupadas verticalmente y centradas 
 body:not(.vocabulario-a1) .vocabulario-grid {
   display: flex;
   flex-direction: column;
@@ -173,7 +173,7 @@ body:not(.vocabulario-a1) .vocabulario-grid {
   gap: 1.5rem;
   margin-top: 1rem;
   padding: 1rem;
-}
+}*/
 
 
 .tarjeta-vocabulario {

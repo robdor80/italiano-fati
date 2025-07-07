@@ -101,12 +101,10 @@ nav {
 /* Contenido principal */
 main {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
   padding: 2rem 1rem;
-  text-align: center;
 }
+
 
 .imagen-portada {
   display: none;
@@ -373,7 +371,6 @@ footer {
   text-align: center;
   padding: 1.5rem;
   font-size: 0.9rem;
-  background-color: #f2f2f2;
   margin-top: 2rem;
 }
 

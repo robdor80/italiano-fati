@@ -110,18 +110,20 @@ function generarMenuPorCurso(curso) {
 
   const nivel = curso.toLowerCase(); // Ej: "a1-1"
   const secciones = [
-    { nombre: "Vocabolario", icono: "📘" },
-    { nombre: "Grammatica", icono: "📗" },
-    { nombre: "Esercizi", icono: "📙" },
-    { nombre: "Cultura", icono: "📕" }
-  ];
+  { nombre: "Vocabolario", icono: "📘", archivo: "vocabolario" },
+  { nombre: "Grammatica", icono: "📗", archivo: "grammatica" },
+  { nombre: "Esercizi", icono: "📙", archivo: "esercizi" },
+  { nombre: "Cultura", icono: "📕", archivo: "cultura" }
+];
+
 
   menu.innerHTML = ""; // Limpiar menú anterior
 
   secciones.forEach(sec => {
     const li = document.createElement("li");
     const enlace = document.createElement("a");
-    const archivo = `${sec.nombre.toLowerCase()}-${nivel}.html`;
+    const archivo = `${sec.archivo}-${nivel}.html`;
+
 
     enlace.href = archivo;
     enlace.textContent = `${sec.icono} ${sec.nombre} ${curso.toUpperCase()}`;
@@ -129,3 +131,6 @@ function generarMenuPorCurso(curso) {
     menu.appendChild(li);
   });
 }
+
+
+

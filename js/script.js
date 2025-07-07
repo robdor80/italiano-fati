@@ -15,15 +15,13 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
 // ✅ Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' }); // 🟢 Fuerza selección de cuenta
+provider.setCustomParameters({ prompt: 'select_account' });
 
 const db = getFirestore(app);
-
 
 // ✅ Menú hamburguesa
 const botonMenu = document.getElementById("boton-menu");
@@ -40,12 +38,10 @@ const usuarioSpan = document.getElementById("usuario-logueado");
 
 botonLogin.addEventListener("click", () => {
   if (auth.currentUser) {
-    // Ya está logueado, cerrar sesión
     signOut(auth).then(() => {
       console.log("Sesión cerrada");
     });
   } else {
-    // Iniciar sesión
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log("Sesión iniciada con:", result.user.displayName);
@@ -56,85 +52,113 @@ botonLogin.addEventListener("click", () => {
   }
 });
 
-// ✅ Detectar cambios de sesión y actualizar la UI
+// ✅ Detectar cambios de sesión
 onAuthStateChanged(auth, (user) => {
+  const cursoSelector = document.getElementsByName("curso");
+
   if (user) {
     usuarioSpan.textContent = `Hola, ${user.displayName}`;
     botonLogin.textContent = "Cerrar sesión";
 
-    // Obtener y aplicar curso guardado
-    const cursoSelector = document.getElementsByName("curso");
     const docRef = doc(db, "usuarios", user.uid);
 
-    // Si NO quieres autoseleccionar curso ni generar menú al iniciar sesión:
-getDoc(docRef).then((docSnap) => {
-  if (docSnap.exists() && docSnap.data().curso) {
-    console.log("Curso guardado encontrado:", docSnap.data().curso);
-    // Puedes usar esta info para mostrar un aviso o recordatorio si quieres
-    // Pero no seleccionamos el radio ni generamos el menú
-  }
-});
+    getDoc(docRef).then((docSnap) => {
+      if (docSnap.exists() && docSnap.data().curso) {
+        const cursoAnterior = docSnap.data().curso;
 
+        // ✅ Mostrar mensaje de "¿Deseas continuar?"
+        const contenedorAviso = document.createElement("div");
+        contenedorAviso.id = "aviso-curso";
+        contenedorAviso.style.padding = "1em";
+        contenedorAviso.style.marginTop = "1em";
+        contenedorAviso.style.border = "1px solid #ccc";
+        contenedorAviso.style.borderRadius = "8px";
+        contenedorAviso.style.backgroundColor = "#f9f9f9";
+        contenedorAviso.style.textAlign = "center";
+        contenedorAviso.innerHTML = `
+          <p>📌 Último curso seleccionado: <strong>${cursoAnterior.toUpperCase()}</strong></p>
+          <button id="continuar-curso">Continuar con este curso</button>
+        `;
 
-    // Guardar selección de curso y actualizar menú
+        const radios = document.querySelector("fieldset") || document.body;
+        radios.parentNode.insertBefore(contenedorAviso, radios.nextSibling);
+
+        document.getElementById("continuar-curso").addEventListener("click", () => {
+          cursoSelector.forEach(radio => {
+            if (radio.value === cursoAnterior) {
+              radio.checked = true;
+            }
+          });
+
+          generarMenuPorCurso(cursoAnterior);
+
+          // Reforzar guardado
+          setDoc(doc(db, "usuarios", user.uid), {
+            curso: cursoAnterior
+          }, { merge: true });
+
+          contenedorAviso.remove();
+        });
+      }
+    });
+
+    // ✅ Detectar cambios de curso
     cursoSelector.forEach(radio => {
       radio.addEventListener("change", () => {
         if (radio.checked) {
           const cursoSeleccionado = radio.value;
 
-          // Guardar en Firestore
           setDoc(doc(db, "usuarios", user.uid), {
             curso: cursoSeleccionado
           }, { merge: true });
 
-          // Generar menú dinámico actualizado
           generarMenuPorCurso(cursoSeleccionado);
         }
       });
     });
 
   } else {
-  usuarioSpan.textContent = "";
-  botonLogin.textContent = "Iniciar sesión";
+    usuarioSpan.textContent = "";
+    botonLogin.textContent = "Iniciar sesión";
 
-  // 🔴 NUEVO: Limpiar el menú
-  const menu = document.getElementById("menu");
-  if (menu) {
-    menu.innerHTML = "";
-    menu.classList.remove("mostrar");
-    menu.classList.add("oculto");
+    // 🔴 Limpiar menú
+    const menu = document.getElementById("menu");
+    if (menu) {
+      menu.innerHTML = "";
+      menu.classList.remove("mostrar");
+      menu.classList.add("oculto");
+    }
+
+    // 🔴 Deseleccionar curso
+    cursoSelector.forEach(radio => {
+      radio.checked = false;
+    });
+
+    // 🔴 Eliminar aviso si aún está presente
+    const aviso = document.getElementById("aviso-curso");
+    if (aviso) aviso.remove();
   }
+});
 
-  // 🔴 NUEVO: Desmarcar la selección de curso
-  const cursoSelector = document.getElementsByName("curso");
-  cursoSelector.forEach(radio => {
-    radio.checked = false;
-  });
-}
-
-}); // 🔴 ESTA llave cierra el onAuthStateChanged
-
-// ✅ Esta función debe estar FUERA de onAuthStateChanged
+// ✅ Generador de menú dinámico
 function generarMenuPorCurso(curso) {
   const menu = document.getElementById("menu");
   if (!menu) return;
 
-  const nivel = curso.toLowerCase(); // Ej: "a1-1"
+  const nivel = curso.toLowerCase();
   const secciones = [
-  { nombre: "Vocabolario", icono: "📘", archivo: "vocabolario" },
-  { nombre: "Grammatica", icono: "📗", archivo: "grammatica" },
-  { nombre: "Esercizi", icono: "📙", archivo: "esercizi" },
-  { nombre: "Cultura", icono: "📕", archivo: "cultura" }
-];
+    { nombre: "Vocabolario", icono: "📘", archivo: "vocabolario" },
+    { nombre: "Grammatica", icono: "📗", archivo: "grammatica" },
+    { nombre: "Esercizi", icono: "📙", archivo: "esercizi" },
+    { nombre: "Cultura", icono: "📕", archivo: "cultura" }
+  ];
 
-
-  menu.innerHTML = ""; // Limpiar menú anterior
+  menu.innerHTML = "";
 
   secciones.forEach(sec => {
     const li = document.createElement("li");
     const enlace = document.createElement("a");
     const archivo = `${sec.archivo}-${nivel}.html`;
-
 
     enlace.href = archivo;
     enlace.textContent = `${sec.icono} ${sec.nombre} ${curso.toUpperCase()}`;
@@ -142,6 +166,3 @@ function generarMenuPorCurso(curso) {
     menu.appendChild(li);
   });
 }
-
-
-

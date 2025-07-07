@@ -98,9 +98,24 @@ onAuthStateChanged(auth, (user) => {
     });
 
   } else {
-    usuarioSpan.textContent = "";
-    botonLogin.textContent = "Iniciar sesión";
+  usuarioSpan.textContent = "";
+  botonLogin.textContent = "Iniciar sesión";
+
+  // 🔴 NUEVO: Limpiar el menú
+  const menu = document.getElementById("menu");
+  if (menu) {
+    menu.innerHTML = "";
+    menu.classList.remove("mostrar");
+    menu.classList.add("oculto");
   }
+
+  // 🔴 NUEVO: Desmarcar la selección de curso
+  const cursoSelector = document.getElementsByName("curso");
+  cursoSelector.forEach(radio => {
+    radio.checked = false;
+  });
+}
+
 }); // 🔴 ESTA llave cierra el onAuthStateChanged
 
 // ✅ Esta función debe estar FUERA de onAuthStateChanged

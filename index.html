@@ -20,30 +20,62 @@
   <div class="franja"></div>
 </header>
 
+<div id="selector-curso">
+  <fieldset>
+    <legend><strong>Selecciona tu curso:</strong></legend>
 
-    <!-- Menú de navegación -->
-    <nav>
-        <div class="boton-menu" id="boton-menu">☰</div>
-        <ul class="menu oculto" id="menu">
-            <li><a href="vocabulario.html">📘 Vocabolario</a></li>
-            <li><a href="gramatica.html">📗 Grammatica</a></li>
-            <li><a href="ejercicios.html">📙 Esercizi</a></li>
-            <li><a href="cultura.html">📕 Cultura</a></li>
-        </ul>
-    </nav>
+    <!-- Nivel Básico -->
+    <div class="etiqueta-nivel">Nivel Básico</div>
+    <div class="grupo-curso">
+      <label><input type="radio" name="curso" value="A1-1"> A1 – 1º</label>
+      <label><input type="radio" name="curso" value="A1-2"> A1 – 2º</label>
+      <label><input type="radio" name="curso" value="A2-3"> A2 – 3º</label>
+      <label><input type="radio" name="curso" value="A2-4"> A2 – 4º</label>
+    </div>
+
+    <!-- Nivel Intermedio -->
+    <div class="etiqueta-nivel">Nivel Intermedio</div>
+    <div class="grupo-curso">
+      <label><input type="radio" name="curso" value="B1-5"> B1 – 5º</label>
+      <label><input type="radio" name="curso" value="B2-6"> B2 – 6º</label>
+    </div>
+
+    <!-- Nivel Avanzado -->
+    <div class="etiqueta-nivel">Nivel Avanzado</div>
+    <div class="grupo-curso">
+      <label><input type="radio" name="curso" value="C1-7"> C1 – 7º</label>
+      <label><input type="radio" name="curso" value="C2-8"> C2 – 8º</label>
+    </div>
+  </fieldset>
+</div>
+
+
+
+
+<!-- Menú de navegación -->
+<nav>
+    <div class="boton-menu" id="boton-menu">☰</div>
+    <ul class="menu oculto" id="menu">
+        <!-- El menú se generará dinámicamente en JS -->
+    </ul>
+</nav>
+
 
 
 
     <!-- Imagen de portada -->
     <main>
-        <img src="img/pequecho500.jpg" alt="Fati" class="imagen-portada" />
-        <p class="texto-presentacion">
-            ¡Fati, bienvenida a tu web personal para practicar italiano! <br>
-            Espero que te guste y que de algún modo te ayude en tu nueva aventura <br>
-            Comienza seleccionando una de las secciones del menú.
+  <img src="img/pequecho500.jpg" alt="Fati" class="imagen-portada" />
+  
+  <div class="bloque-contenido">
+    <p class="texto-presentacion">
+      ¡Fati, bienvenida a tu web personal para practicar italiano! <br>
+      Espero que te guste y que de algún modo te ayude en tu nueva aventura. <br>
+      Comienza seleccionando el curso sobre el que quieres trabajar.
+    </p>
+  </div>
+</main>
 
-        </p>
-    </main>
 
    <script type="module" src="js/script.js"></script>
 

@@ -117,6 +117,16 @@ main {
   margin-right: auto;
 }
 
+/* 🔧 Corregido: Centrado de bloque-contenido */
+.bloque-contenido {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
 /* Footer */
 footer {
   width: 100%;
@@ -332,7 +342,7 @@ footer {
     background-color: transparent;
     padding: 0.8rem 1.2rem;
     border-radius: 12px;
-    margin: 1rem;
+    margin: 1rem auto;
   }
 
   .texto-presentacion {

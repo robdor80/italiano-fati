@@ -394,3 +394,37 @@ footer {
 #selector-curso legend {
   padding-bottom: 5px;
 }
+
+/* 🔧 Estilo para tarjetas de secciones de vocabulario (vocabolario-a1-1.html) */
+.grid-vocabulario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+.card-vocab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffffcc;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: #333;
+  width: 180px;
+  transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+.card-vocab:hover {
+  transform: translateY(-5px);
+  background-color: #f0f0f0;
+}
+
+.card-vocab .emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}

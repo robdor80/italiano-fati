@@ -1,20 +1,34 @@
-/* Estilos personalizados para las páginas del curso A1 */
+/* 🎨 Estilos personalizados para las páginas del curso A1 */
 
+/* ✅ Estilo base para el cuerpo */
 body {
-  /* Puedes sobrescribir cosas aquí si quieres */
+  background-color: lightyellow;
 }
 
-/* Ejemplo: cambiar color de títulos */
+/* ✅ Color de títulos en A1 */
 h2 {
   color: #03111f;
 }
 
-/* O personalizar la tarjeta de vocabulario */
+/* ✅ Personalización del borde de las tarjetas */
 .tarjeta-vocabulario {
   border-left: 4px solid #0055aa;
 }
 
+/* ✅ Agrupar tarjetas en filas en pantallas grandes */
+.vocabulario-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
 
-body {
-  background-color: lightyellow;
+/* 📱 En móviles, mantener una debajo de otra */
+@media (max-width: 768px) {
+  .vocabulario-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 }

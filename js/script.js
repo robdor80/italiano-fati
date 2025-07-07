@@ -80,8 +80,11 @@ onAuthStateChanged(auth, (user) => {
           <button id="continuar-curso">Continuar con este curso</button>
         `;
 
-        const radios = document.querySelector("fieldset") || document.body;
-        radios.parentNode.insertBefore(contenedorAviso, radios.nextSibling);
+        const radios = document.querySelector("fieldset");
+        if (radios) {
+          radios.parentNode.insertBefore(contenedorAviso, radios.nextSibling);
+        }
+
 
         document.getElementById("continuar-curso").addEventListener("click", () => {
           cursoSelector.forEach(radio => {

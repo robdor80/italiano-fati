@@ -201,7 +201,7 @@ main {
   max-width: 800px;
   margin: 2em auto;
   padding: 1em;
-  background: #ffffff;
+  /*background: #ffffff;*/
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.08);
   font-family: 'Segoe UI', sans-serif;

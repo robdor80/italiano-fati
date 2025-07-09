@@ -53,9 +53,9 @@ body.vocabulario-a1 .vocabulario-grid {
 }
 
 .botonera-centrada .btn-accion {
-  background-color: #007bff;
+  
   color: #fff;
-  border: none;
+  border: 1px solid black;
   font-size: 1.2rem;
   padding: 0.8rem 2rem;
   border-radius: 0.6rem;

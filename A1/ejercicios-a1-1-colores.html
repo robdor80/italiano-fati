@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicios A1 - 1º Vocabolario</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="a1-style.css" />
+</head>
+<body class="vocabolario-a1">
+  <header>
+    <h1>Ejercicios A1 - 1º Vocabolario</h1>
+    <nav class="navegacion-top">
+      <a href="../index.html">🏠 Inicio</a>
+      <a href="vocabolario-a1-1-colores.html">🔙 Volver al vocabulario</a>
+    </nav>
+  </header>
+
+  <main class="vocabolario-container">
+    <h2>🧠 Traduce estas palabras</h2>
+
+    <section class="tarjeta-vocabulario">
+      <h3>1. ¿Cómo se dice <em>"Rojo"</em> en italiano?</h3>
+      <input type="text" id="q1" placeholder="Escribe aquí..." />
+      <p id="r1" class="respuesta"></p>
+    </section>
+
+    <section class="tarjeta-vocabulario">
+      <h3>2. ¿Qué significa <em>"Arancione"</em>?</h3>
+      <input type="text" id="q2" placeholder="Escribe aquí..." />
+      <p id="r2" class="respuesta"></p>
+    </section>
+
+    <button onclick="corregirEjercicios()" class="btn-accion">✅ Corregir</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Curso de Italiano A1 - 1º</p>
+  </footer>
+
+  <script>
+    function corregirEjercicios() {
+      const r1 = document.getElementById("q1").value.trim().toLowerCase();
+      const r2 = document.getElementById("q2").value.trim().toLowerCase();
+
+      const resultado1 = document.getElementById("r1");
+      const resultado2 = document.getElementById("r2");
+
+      resultado1.innerText = (r2 === "Rosso" || r2 === "rosso")
+        ? "✔️ Correcto"
+        : "❌ Incorrecto. La respuesta es 'Rosso'";
+
+      resultado2.innerText = (r2 === "Naranja" || r2 === "naranja")
+        ? "✔️ Correcto"
+        : "❌ Incorrecto. Significa 'Naranja'";
+    }
+  </script>
+</body>
+</html>

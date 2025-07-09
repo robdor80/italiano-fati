@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Identificación personal - A1 1º</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="a1-style.css" />
+</head>
+
+
+<body>
+
+    <body class="vocabulario-a1">
+
+        <header>
+            <h1>Vocabolario A1 - 1º</h1>
+            <nav class="navegacion-top">
+                <a href="../index.html">🏠 Inicio</a>
+                <a href="vocabolario-a1-1.html">🔙 Volver a secciones</a>
+            </nav>
+
+
+        </header>
+
+        <main class="vocabulario-container">
+            <h2>🎨 Los colores</h2>
+
+            <section class="vocabulario-grid">
+                <div class="tarjeta-vocabulario">
+                    <p class="idiomas-header">Español / Italiano</p>
+                    <h3>Colores</h3>
+                    <ul>
+                        <li>Rojo - Rosso</li>
+                        <li>Azul - Blu</li>
+                        <li>Verde - Verde</li>
+                        <li>Amarillo - Giallo</li>
+                        <li>Negro - Nero</li>
+                        <li>Blanco - Bianco</li>
+                        <li>Naranja - Arancione</li>
+                        <li>Rosa - Rosa</li>
+                        <li>Marrón - Marrone</li>
+                        <li>Gris - Grigio</li>
+                        <li>Violeta - Viola</li>
+                    </ul>
+
+                </div>
+
+                
+
+                
+            </section>
+
+            <div class="botonera">
+                <button onclick="exportarAPDF()">📄 Exportar a PDF</button>
+                <a href="ejercicios-a1-1-colores.html">✍️ Practicar ejercicios</a>
+
+            </div>
+        </main>
+
+
+        <footer>
+            <p>&copy; 2025 Curso de Italiano A1 - 1º</p>
+        </footer>
+
+        <script>
+            function exportarAPDF() {
+                const contenido = document.querySelector("main").innerHTML;
+                const ventana = window.open("", "", "width=800,height=600");
+                ventana.document.write(`
+        <html>
+          <head>
+            <title>PDF - Identificación personal</title>
+            <style>
+              body { font-family: sans-serif; padding: 2em; }
+              h2, h3 { color: #333; }
+              ul { list-style-type: square; margin-left: 2em; }
+              .acciones, nav, footer { display: none; }
+            </style>
+          </head>
+          <body>
+            ${contenido}
+          </body>
+        </html>
+      `);
+                ventana.document.close();
+                ventana.print();
+            }
+        </script>
+    </body>
+
+</html>

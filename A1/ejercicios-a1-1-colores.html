@@ -17,43 +17,108 @@
   </header>
 
   <main class="vocabolario-container">
-    <h2>🧠 Traduce estas palabras</h2>
+  <h2>🧠 Traduce estas palabras</h2>
 
-    <section class="tarjeta-vocabulario">
-      <h3>1. ¿Cómo se dice <em>"Rojo"</em> en italiano?</h3>
-      <input type="text" id="q1" placeholder="Escribe aquí..." />
-      <p id="r1" class="respuesta"></p>
-    </section>
+  <section class="tarjeta-vocabulario">
+    <h3>1. ¿Cómo se dice <em>"Rojo"</em> en italiano?</h3>
+    <input type="text" id="q1" placeholder="Escribe aquí..." />
+    <p id="r1" class="respuesta"></p>
+  </section>
 
-    <section class="tarjeta-vocabulario">
-      <h3>2. ¿Qué significa <em>"Arancione"</em>?</h3>
-      <input type="text" id="q2" placeholder="Escribe aquí..." />
-      <p id="r2" class="respuesta"></p>
-    </section>
+  <section class="tarjeta-vocabulario">
+    <h3>2. ¿Qué significa <em>"Arancione"</em>?</h3>
+    <input type="text" id="q2" placeholder="Escribe aquí..." />
+    <p id="r2" class="respuesta"></p>
+  </section>
 
-    <button onclick="corregirEjercicios()" class="btn-accion">✅ Corregir</button>
-  </main>
+  <section class="tarjeta-vocabulario">
+    <h3>3. ¿Cómo se dice <em>"Azul"</em> en italiano?</h3>
+    <input type="text" id="q3" placeholder="Escribe aquí..." />
+    <p id="r3" class="respuesta"></p>
+  </section>
+
+  <section class="tarjeta-vocabulario">
+    <h3>4. ¿Qué significa <em>"Verde"</em>?</h3>
+    <input type="text" id="q4" placeholder="Escribe aquí..." />
+    <p id="r4" class="respuesta"></p>
+  </section>
+
+  <section class="tarjeta-vocabulario">
+    <h3>5. ¿Cómo se dice <em>"Amarillo"</em> en italiano?</h3>
+    <input type="text" id="q5" placeholder="Escribe aquí..." />
+    <p id="r5" class="respuesta"></p>
+  </section>
+
+  <section class="tarjeta-vocabulario">
+    <h3>6. ¿Qué significa <em>"Nero"</em>?</h3>
+    <input type="text" id="q6" placeholder="Escribe aquí..." />
+    <p id="r6" class="respuesta"></p>
+  </section>
+
+  <section class="tarjeta-vocabulario">
+    <h3>7. ¿Cómo se dice <em>"Blanco"</em> en italiano?</h3>
+    <input type="text" id="q7" placeholder="Escribe aquí..." />
+    <p id="r7" class="respuesta"></p>
+  </section>
+
+  <section class="tarjeta-vocabulario">
+    <h3>8. ¿Qué significa <em>"Rosa"</em>?</h3>
+    <input type="text" id="q8" placeholder="Escribe aquí..." />
+    <p id="r8" class="respuesta"></p>
+  </section>
+
+  <section class="tarjeta-vocabulario">
+    <h3>9. ¿Cómo se dice <em>"Marrón"</em> en italiano?</h3>
+    <input type="text" id="q9" placeholder="Escribe aquí..." />
+    <p id="r9" class="respuesta"></p>
+  </section>
+
+  <section class="tarjeta-vocabulario">
+    <h3>10. ¿Qué significa <em>"Grigio"</em>?</h3>
+    <input type="text" id="q10" placeholder="Escribe aquí..." />
+    <p id="r10" class="respuesta"></p>
+  </section>
+
+  <section class="tarjeta-vocabulario">
+    <h3>11. ¿Cómo se dice <em>"Violeta"</em> en italiano?</h3>
+    <input type="text" id="q11" placeholder="Escribe aquí..." />
+    <p id="r11" class="respuesta"></p>
+  </section>
+
+  <button onclick="corregirEjercicios()" class="btn-accion">✅ Corregir</button>
+</main>
+
 
   <footer>
     <p>&copy; 2025 Curso de Italiano A1 - 1º</p>
   </footer>
 
   <script>
-    function corregirEjercicios() {
-      const r1 = document.getElementById("q1").value.trim().toLowerCase();
-      const r2 = document.getElementById("q2").value.trim().toLowerCase();
+  function corregirEjercicios() {
+    const respuestas = {
+      q1: "rosso",
+      q2: "naranja",
+      q3: "blu",
+      q4: "verde",
+      q5: "giallo",
+      q6: "negro",
+      q7: "bianco",
+      q8: "rosa",
+      q9: "marrone",
+      q10: "gris",
+      q11: "viola"
+    };
 
-      const resultado1 = document.getElementById("r1");
-      const resultado2 = document.getElementById("r2");
-
-      resultado1.innerText = (r1 === "Rosso" || r1 === "rosso")
+    for (let i = 1; i <= 11; i++) {
+      const input = document.getElementById(`q${i}`).value.trim().toLowerCase();
+      const resultado = document.getElementById(`r${i}`);
+      const correcta = respuestas[`q${i}`];
+      resultado.innerText = (input === correcta)
         ? "✔️ Correcto"
-        : "❌ Incorrecto. La respuesta es 'Rosso'";
-
-      resultado2.innerText = (r2 === "Naranja" || r2 === "naranja")
-        ? "✔️ Correcto"
-        : "❌ Incorrecto. Significa 'Naranja'";
+        : `❌ Incorrecto. La respuesta es '${correcta.charAt(0).toUpperCase() + correcta.slice(1)}'`;
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
